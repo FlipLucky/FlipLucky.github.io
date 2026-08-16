@@ -1,49 +1,34 @@
-import { BellIcon, CheckIcon } from '../Icons/Icons'
+// Icons from Phosphor (phosphor-icons/core, MIT), regular weight.
 import styles from './cardIcons.module.scss'
 
 export function AlarmFloodIcon() {
   return (
-    <div class={styles.grid}>
-      {Array.from({ length: 9 }, (_, i) => (
-        <div class={i % 2 === 1 ? styles.cellFilled : styles.cell} />
-      ))}
-    </div>
+    <svg class={styles.icon} viewBox="0 0 256 256" fill="currentColor">
+      <path d="M92,136H40a16,16,0,0,1-11.76-5.21,16.21,16.21,0,0,1-4.17-12.37A103.83,103.83,0,0,1,67.65,42.93,16,16,0,0,1,90.75,48l26,45a8,8,0,1,1-13.86,8L76.89,56A87.83,87.83,0,0,0,40,119.86a.19.19,0,0,0,.07.16L92,120a8,8,0,0,1,0,16Zm139.93-17.58a103.83,103.83,0,0,0-43.58-75.49A16,16,0,0,0,165.25,48L139.3,93a8,8,0,0,0,13.86,8l26-45A87.87,87.87,0,0,1,216,119.86c0,.07,0,.12,0,.14H164a8,8,0,0,0,0,16h52a16,16,0,0,0,11.76-5.21A16.21,16.21,0,0,0,231.93,118.42Zm-79,36.76a8,8,0,1,0-13.86,8l25.84,44.73a88.22,88.22,0,0,1-73.81,0l25.83-44.73a8,8,0,1,0-13.86-8L77.25,199.91a16,16,0,0,0,7.12,22.52,104.24,104.24,0,0,0,87.26,0,16,16,0,0,0,7.12-22.52ZM128,140a12,12,0,1,0-12-12A12,12,0,0,0,128,140Z" />
+    </svg>
   )
 }
 
 export function NuisanceAlarmIcon() {
   return (
-    <div class={styles.relative}>
-      <BellIcon class={styles.bell} />
-      <div class={styles.checkBadge}>
-        <CheckIcon class={styles.checkIcon} />
-      </div>
-    </div>
+    <svg class={styles.icon} viewBox="0 0 256 256" fill="currentColor">
+      <path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L58.82,63.8A79.59,79.59,0,0,0,48,104c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.8a40,40,0,0,0,78.4,0h15.44l19.44,21.38a8,8,0,1,0,11.84-10.76ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a63.65,63.65,0,0,1,6.26-27.62L168.09,184Zm166-4.73a8.13,8.13,0,0,1-2.93.55,8,8,0,0,1-7.44-5.08C196.35,156.19,192,129.75,192,104A64,64,0,0,0,96.43,48.31a8,8,0,0,1-7.9-13.91A80,80,0,0,1,208,104c0,35.35,8.05,58.59,10.52,64.88A8,8,0,0,1,214,179.25Z" />
+    </svg>
   )
 }
 
-export function StandingAlarmIcon(props) {
+export function StandingAlarmIcon() {
   return (
-    <div class={styles.standingWrap}>
-      <div class={styles.lines}>
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
-      <div class={styles.standingCircle}>{props.value ?? '47'}</div>
-    </div>
+    <svg class={styles.icon} viewBox="0 0 256 256" fill="currentColor">
+      <path d="M248,128a56,56,0,0,1-95.6,39.6l-.33-.35L92.12,99.55a40,40,0,1,0,0,56.9l8.52-9.62a8,8,0,1,1,12,10.61l-8.69,9.81-.33.35a56,56,0,1,1,0-79.2l.33.35,59.95,67.7a40,40,0,1,0,0-56.9l-8.52,9.62a8,8,0,1,1-12-10.61l8.69-9.81.33-.35A56,56,0,0,1,248,128Z" />
+    </svg>
   )
 }
 
 export function ShelvingIcon() {
   return (
-    <div class={styles.relative}>
-      <BellIcon class={styles.bellFaded} />
-      <div class={styles.ring}>
-        <div class={styles.ringDot} />
-      </div>
-      <div class={styles.baseline} />
-    </div>
+    <svg class={styles.icon} viewBox="0 0 256 256" fill="currentColor">
+      <path d="M224,48H32A16,16,0,0,0,16,64V88a16,16,0,0,0,16,16v88a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V104a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM208,192H48V104H208ZM224,88H32V64H224V88ZM96,136a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,136Z" />
+    </svg>
   )
 }
