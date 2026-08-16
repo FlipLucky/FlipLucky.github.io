@@ -53,8 +53,16 @@
   transition: transform 0.5s ease;
 }
 
+// Reserves space for 2 lines regardless of whether this card's title
+// actually wraps, so a one-line title ("Shelving") and a two-line one
+// ("Standing Alarm") leave the icon at the same height on every card.
 .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.4375rem;
   margin-bottom: 1rem;
+  line-height: 1.25;
   color: var(--card-color);
 }
 
