@@ -1,5 +1,5 @@
 import { A } from '@solidjs/router'
-import styles from './Home.module.scss'
+import styles from './index.module.scss'
 
 const SECTIONS = [
   {

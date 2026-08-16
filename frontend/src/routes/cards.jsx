@@ -6,7 +6,7 @@ import {
   StandingAlarmIcon,
   ShelvingIcon,
 } from '../components/SystemCard/cardIcons'
-import styles from './Cards.module.scss'
+import styles from './cards.module.scss'
 
 const CARDS = [
   {

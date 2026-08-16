@@ -3,7 +3,7 @@ import StatusItem from '../components/StatusItem/StatusItem'
 import Tag from '../components/Tag/Tag'
 import Badge from '../components/Badge/Badge'
 import Button from '../components/Button/Button'
-import styles from './Components.module.scss'
+import styles from './components.module.scss'
 
 export default function ComponentsPage() {
   return (

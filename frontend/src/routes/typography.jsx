@@ -1,6 +1,6 @@
 import SectionHeading from '../components/SectionHeading/SectionHeading'
 import TypeSample from '../components/TypeSample/TypeSample'
-import styles from './Typography.module.scss'
+import styles from './typography.module.scss'
 
 export default function Typography() {
   return (

@@ -3,7 +3,7 @@ import SectionHeading from '../components/SectionHeading/SectionHeading'
 import TextField from '../components/TextField/TextField'
 import SelectField from '../components/SelectField/SelectField'
 import Button from '../components/Button/Button'
-import styles from './Forms.module.scss'
+import styles from './forms.module.scss'
 
 const PRIORITY_OPTIONS = [
   { value: 'routine', label: 'Routine Monitoring (Needs Nothing)' },
