@@ -35,6 +35,16 @@ export const PROJECTS = [
     body: 'Placeholder body copy for the project detail page. Replace with an actual write-up: what it is, what you built, what stack it uses, and why it exists.',
     wasm: null,
   },
+  {
+    slug: 'project-four',
+    color: 'red',
+    unit: '04',
+    tag: 'Placeholder',
+    title: 'Project Four',
+    summary: 'One-line placeholder summary — replace with a real project.',
+    body: 'Placeholder body copy for the project detail page. Replace with an actual write-up: what it is, what you built, what stack it uses, and why it exists.',
+    wasm: null,
+  },
 ]
 
 export function getProject(slug) {
