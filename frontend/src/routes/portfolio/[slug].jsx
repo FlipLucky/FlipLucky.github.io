@@ -3,6 +3,10 @@ import { Show } from 'solid-js'
 import SectionHeading from '../../components/SectionHeading/SectionHeading'
 import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
 import WasmDemo from '../../components/WasmDemo/WasmDemo'
+import TypographySection from '../../components/StyleGuideSections/TypographySection'
+import ComponentsSection from '../../components/StyleGuideSections/ComponentsSection'
+import CardsSection from '../../components/StyleGuideSections/CardsSection'
+import FormsSection from '../../components/StyleGuideSections/FormsSection'
 import { getProject } from '../../data/projects'
 import styles from './detail.module.scss'
 
@@ -30,13 +34,24 @@ export default function ProjectDetail() {
             {currentProject().title}
           </h1>
 
-          <div class={styles.image}>
-            <ImagePlaceholder ratio="16 / 9" />
-          </div>
+          <Show when={!currentProject().showcase}>
+            <div class={styles.image}>
+              <ImagePlaceholder ratio="16 / 9" />
+            </div>
+          </Show>
 
           <p class={`tk-body-mono ${styles.body}`}>{currentProject().body}</p>
 
           <WasmDemo wasm={currentProject().wasm} />
+
+          <Show when={currentProject().showcase === 'styleguide'}>
+            <div class={styles.showcase}>
+              <TypographySection />
+              <ComponentsSection />
+              <CardsSection />
+              <FormsSection />
+            </div>
+          </Show>
         </section>
       )}
     </Show>

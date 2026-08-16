@@ -20,3 +20,12 @@
 .notFound {
   color: var(--color-text-muted);
 }
+
+.showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-border);
+}
