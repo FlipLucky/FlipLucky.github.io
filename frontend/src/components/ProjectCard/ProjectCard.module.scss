@@ -1,0 +1,63 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
+
+.card {
+  display: block;
+  position: relative;
+  border: 2px solid var(--color-border-strong);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  padding-top: 2.25rem;
+  transition:
+    border-color 0.3s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  @include m.glow-shadow(var(--card-color), 5px);
+  @include m.corner-brackets(var(--card-color));
+
+  &:hover {
+    border-color: var(--card-color);
+  }
+}
+
+.carousel {
+  flex: 0 0 auto;
+  width: 20rem;
+  scroll-snap-align: start;
+}
+
+.grid {
+  width: 100%;
+}
+
+.nameplate {
+  position: absolute;
+  top: 0.85rem;
+  left: 1.75rem;
+  right: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: t.$font-mono;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: t.$tracking-micro;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+.body {
+  padding: 1.25rem;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  color: var(--card-color);
+}
+
+.summary {
+  margin: 0;
+  color: var(--color-text-muted);
+}

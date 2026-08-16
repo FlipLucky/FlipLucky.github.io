@@ -1,0 +1,22 @@
+.frame {
+  border: 2px solid var(--color-border-strong);
+  background-color: var(--color-input-bg);
+  padding: 1.5rem;
+  min-height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status {
+  color: var(--color-text-muted);
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}

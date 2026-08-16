@@ -37,13 +37,9 @@
 }
 
 .links {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 2rem;
-
-  @include m.respond-up(t.$breakpoint-md) {
-    display: flex;
-  }
 }
 
 .link {
@@ -58,71 +54,4 @@
 
 .linkActive {
   color: var(--color-text-primary);
-}
-
-.dropdown {
-  position: relative;
-
-  &:hover .menu,
-  &:focus-within .menu {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &:hover .chevron,
-  &:focus-within .chevron {
-    transform: rotate(180deg);
-  }
-}
-
-.dropdownTrigger {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
-  color: var(--color-teal);
-}
-
-.chevron {
-  width: 0.75rem;
-  height: 0.75rem;
-  transition: transform 0.2s ease;
-}
-
-.menu {
-  position: absolute;
-  right: 0;
-  margin-top: 1rem;
-  width: 12rem;
-  background-color: var(--color-surface);
-  border: 2px solid var(--color-border-strong);
-  border-radius: 0;
-  box-shadow: 4px 4px 0 var(--color-border-strong);
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease;
-}
-
-.menuList {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem 0;
-}
-
-.menuLink {
-  padding: 0.5rem 1rem;
-  text-align: left;
-  color: var(--color-text-muted);
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
-
-  &:hover,
-  &:focus-visible {
-    color: var(--color-text-primary);
-    background-color: var(--color-bg);
-  }
 }

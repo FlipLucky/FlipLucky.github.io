@@ -1,0 +1,31 @@
+@use '../../styles/tokens' as t;
+
+.placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--placeholder-ratio, 16 / 10);
+  overflow: hidden;
+  background-color: var(--color-input-bg);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-border) 0,
+    var(--color-border) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  font-family: t.$font-mono;
+  font-size: t.$text-micro;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: t.$tracking-section;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--color-border);
+}
