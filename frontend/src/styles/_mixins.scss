@@ -97,7 +97,12 @@
 }
 
 // Registration-mark corners, like a targeting reticle framing a panel.
-@mixin corner-brackets($color: currentColor, $size: 14px) {
+// Inset rather than hung outside the border: a corner floating outside the
+// card sits directly on top of the hard-shadow block, and a dark accent
+// (blue, teal) has almost no contrast against that near-black ink — it
+// reads as swallowed by the shadow rather than as part of the card. Inside
+// the border, it's always over the card's own surface color instead.
+@mixin corner-brackets($color: currentColor, $size: 12px, $inset: 10px) {
   &::before,
   &::after {
     content: '';
@@ -108,15 +113,15 @@
   }
 
   &::before {
-    top: -7px;
-    left: -7px;
+    top: $inset;
+    left: $inset;
     border-right: none;
     border-bottom: none;
   }
 
   &::after {
-    bottom: -7px;
-    right: -7px;
+    bottom: $inset;
+    right: $inset;
     border-left: none;
     border-top: none;
   }
