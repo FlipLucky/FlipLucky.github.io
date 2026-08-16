@@ -1,3 +1,6 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
+
 .card {
   display: flex;
   flex-direction: column;
@@ -5,12 +8,15 @@
   justify-content: center;
   text-align: center;
   height: 18rem;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
+  padding: 1.75rem 2rem 2rem;
+  border: 2px solid var(--color-border-strong);
   background-color: var(--color-surface);
   color: var(--card-color);
+  position: relative;
   transition: border-color 0.3s ease;
+
+  @include m.glow-shadow(var(--card-color));
+  @include m.corner-brackets(var(--card-color));
 
   &:hover {
     border-color: var(--card-color);
@@ -19,6 +25,21 @@
   &:hover .icon {
     transform: scale(1.1);
   }
+}
+
+.nameplate {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  font-family: t.$font-mono;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: t.$tracking-micro;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .icon {

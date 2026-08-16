@@ -17,22 +17,31 @@
   --color-orange: #ff9500;
   --color-teal: #30d5c8;
   --color-blue: #2f80ed;
+
+  // Hard-edge system: the border/shadow "ink" for panels. In dark mode this
+  // is a neutral, slightly-lifted border — the panel's own accent color
+  // carries the glow instead (see SystemCard). In light mode this same
+  // token IS the shadow color (see below).
+  --color-border-strong: #3a3a3f;
 }
 
-// Light mode overrides (eye-comfortable matte industrial)
+// Light mode overrides — warm concrete, not office gray, with an ink-and-glow
+// hard-edge system standing in for the depth the neon glow gives dark mode.
 [data-theme='light'] {
-  --color-bg: #e0e2e6;
-  --color-surface: #eaecef;
-  --color-surface-hover: #f2f4f8;
-  --color-text-primary: #111318;
-  --color-text-muted: #5c606a;
-  --color-border: #bec3cc;
-  --color-input-bg: #d4d7df;
-  --nav-bg: rgba(224, 226, 230, 0.88);
+  --color-bg: #dedad1;
+  --color-surface: #eae6dc;
+  --color-surface-hover: #f2eee3;
+  --color-text-primary: #17140f;
+  --color-text-muted: #635c4f;
+  --color-border: #c2bbac;
+  --color-input-bg: #d2ccc0;
+  --nav-bg: rgba(222, 218, 209, 0.88);
 
   // High-contrast adjusted status colors for light surfaces
-  --color-red: #d12f1b;
-  --color-orange: #d96b00;
-  --color-teal: #007a72;
-  --color-blue: #1653c5;
+  --color-red: #d93a1c;
+  --color-orange: #dd7a00;
+  --color-teal: #007f73;
+  --color-blue: #2457c9;
+
+  --color-border-strong: #1c1710;
 }

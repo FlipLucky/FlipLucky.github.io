@@ -32,14 +32,19 @@
 .linkCard {
   display: block;
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border-strong);
   background-color: var(--color-surface);
-  transition: border-color 0.2s ease;
+  box-shadow: 4px 4px 0 var(--color-border-strong);
+  transition:
+    border-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 
   &:hover,
   &:focus-visible {
     border-color: var(--color-teal);
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-border-strong);
   }
 }
 

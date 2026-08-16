@@ -66,3 +66,58 @@
     color: var(--color-bg);
   }
 }
+
+// ==========================================
+// HARD-EDGE SYSTEM
+// ==========================================
+// Depth without blur: a solid offset shadow instead of ambient blur, and
+// square corners. Stands in for the glow dark mode gets from neon-on-black.
+
+// Neutral hard shadow for panels that don't carry their own accent color
+// (nav dropdown, form card, buttons, list items). Same flat ink offset in
+// both themes since --color-border-strong is themed per _theme.scss.
+@mixin hard-shadow($offset: 4px) {
+  border-radius: 0;
+  box-shadow: #{$offset} #{$offset} 0 var(--color-border-strong);
+}
+
+// Accent-aware hard shadow for "equipment" cards. Dark mode prints the
+// offset in the card's own accent color plus a soft bleed, doing the same
+// glow job neon does elsewhere. Light mode has no glow to fake, so it falls
+// back to a plain ink offset regardless of accent — a shadow is a shadow.
+@mixin glow-shadow($accent-var, $offset: 6px) {
+  border-radius: 0;
+  box-shadow:
+    #{$offset} #{$offset} 0 #{$accent-var},
+    #{$offset} #{$offset} 28px color-mix(in srgb, #{$accent-var} 45%, transparent);
+
+  :global([data-theme='light']) & {
+    box-shadow: #{$offset} #{$offset} 0 var(--color-border-strong);
+  }
+}
+
+// Registration-mark corners, like a targeting reticle framing a panel.
+@mixin corner-brackets($color: currentColor, $size: 14px) {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $size;
+    height: $size;
+    border: 2px solid #{$color};
+  }
+
+  &::before {
+    top: -7px;
+    left: -7px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &::after {
+    bottom: -7px;
+    right: -7px;
+    border-left: none;
+    border-top: none;
+  }
+}

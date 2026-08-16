@@ -10,6 +10,10 @@ const COLOR_VARS = {
 export default function SystemCard(props) {
   return (
     <div class={styles.card} style={{ '--card-color': COLOR_VARS[props.color] }}>
+      <div class={styles.nameplate}>
+        <span>Unit {props.unit}</span>
+        <span>{props.tag}</span>
+      </div>
       <div class={styles.icon}>{props.icon}</div>
       <h3 class={`tk-card-title ${styles.title}`}>{props.title}</h3>
       <p class={`tk-body-mono ${styles.description}`}>{props.description}</p>
