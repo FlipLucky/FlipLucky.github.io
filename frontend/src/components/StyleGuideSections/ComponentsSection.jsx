@@ -1,9 +1,9 @@
-import SectionHeading from '../components/SectionHeading/SectionHeading'
-import StatusItem from '../components/StatusItem/StatusItem'
-import Tag from '../components/Tag/Tag'
-import Badge from '../components/Badge/Badge'
-import Button from '../components/Button/Button'
-import styles from './components.module.scss'
+import SectionHeading from '../SectionHeading/SectionHeading'
+import StatusItem from '../StatusItem/StatusItem'
+import Tag from '../Tag/Tag'
+import Badge from '../Badge/Badge'
+import Button from '../Button/Button'
+import styles from './ComponentsSection.module.scss'
 
 export default function ComponentsPage() {
   return (

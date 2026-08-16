@@ -1,0 +1,10 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.intro {
+  color: var(--color-text-muted);
+  max-width: 40rem;
+}

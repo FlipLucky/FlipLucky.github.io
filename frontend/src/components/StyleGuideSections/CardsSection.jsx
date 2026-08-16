@@ -1,12 +1,12 @@
-import SectionHeading from '../components/SectionHeading/SectionHeading'
-import SystemCard from '../components/SystemCard/SystemCard'
+import SectionHeading from '../SectionHeading/SectionHeading'
+import SystemCard from '../SystemCard/SystemCard'
 import {
   AlarmFloodIcon,
   NuisanceAlarmIcon,
   StandingAlarmIcon,
   ShelvingIcon,
-} from '../components/SystemCard/cardIcons'
-import styles from './cards.module.scss'
+} from '../SystemCard/cardIcons'
+import styles from './CardsSection.module.scss'
 
 const CARDS = [
   {

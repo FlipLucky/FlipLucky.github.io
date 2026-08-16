@@ -1,9 +1,9 @@
 import { createSignal } from 'solid-js'
-import SectionHeading from '../components/SectionHeading/SectionHeading'
-import TextField from '../components/TextField/TextField'
-import SelectField from '../components/SelectField/SelectField'
-import Button from '../components/Button/Button'
-import styles from './forms.module.scss'
+import SectionHeading from '../SectionHeading/SectionHeading'
+import TextField from '../TextField/TextField'
+import SelectField from '../SelectField/SelectField'
+import Button from '../Button/Button'
+import styles from './FormsSection.module.scss'
 
 const PRIORITY_OPTIONS = [
   { value: 'routine', label: 'Routine Monitoring (Needs Nothing)' },

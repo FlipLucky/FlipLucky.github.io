@@ -7,6 +7,9 @@ export default defineConfig({
     prerender: {
       crawlLinks: true,
       failOnError: true,
+      // Not linked from anywhere on purpose (internal reference only), so
+      // the crawler needs to be told about it explicitly.
+      routes: ["/", "/styleguide"],
     },
   },
 });
