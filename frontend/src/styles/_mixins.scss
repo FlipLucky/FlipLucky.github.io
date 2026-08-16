@@ -96,6 +96,36 @@
   }
 }
 
+// Same idea, but for something you press: the glow flattens toward the
+// surface on hover/focus instead of staying static, like a backlit key
+// sinking into its socket. Light mode has no glow to flatten, just a
+// smaller ink offset.
+@mixin glow-press($accent-var, $rest: 3px, $pressed: 1px) {
+  $travel: $rest - $pressed;
+
+  border-radius: 0;
+  box-shadow:
+    #{$rest} #{$rest} 0 #{$accent-var},
+    #{$rest} #{$rest} 8px color-mix(in srgb, #{$accent-var} 35%, transparent);
+
+  :global([data-theme='light']) & {
+    box-shadow: #{$rest} #{$rest} 0 var(--color-border-strong);
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translate(#{$travel}, #{$travel});
+    box-shadow:
+      #{$pressed} #{$pressed} 0 #{$accent-var},
+      #{$pressed} #{$pressed} 5px color-mix(in srgb, #{$accent-var} 25%, transparent);
+  }
+
+  :global([data-theme='light']) &:hover,
+  :global([data-theme='light']) &:focus-visible {
+    box-shadow: #{$pressed} #{$pressed} 0 var(--color-border-strong);
+  }
+}
+
 // Registration-mark corners, like a targeting reticle framing a panel.
 // Inset rather than hung outside the border: a corner floating outside the
 // card sits directly on top of the hard-shadow block, and a dark accent

@@ -1,4 +1,5 @@
 @use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
 
 .outline {
   font-family: t.$font-mono;
@@ -7,23 +8,21 @@
   text-transform: uppercase;
   letter-spacing: t.$tracking-micro;
   padding: 0.75rem 1.5rem;
-  border-radius: 0;
   border: 2px solid var(--btn-color);
   color: var(--btn-color);
   background-color: transparent;
-  box-shadow: 3px 3px 0 var(--color-border-strong);
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
     transform 0.15s ease,
     box-shadow 0.15s ease;
 
+  @include m.glow-press(var(--btn-color));
+
   &:hover,
   &:focus-visible {
     background-color: var(--btn-color);
     color: var(--color-bg);
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 var(--color-border-strong);
   }
 }
 
@@ -33,22 +32,20 @@
   text-transform: uppercase;
   letter-spacing: t.$tracking-wide;
   padding: 0.75rem 2rem;
-  border-radius: 0;
   border: 2px solid var(--color-border-strong);
   background-color: var(--btn-color);
   color: var(--color-bg);
-  box-shadow: 3px 3px 0 var(--color-border-strong);
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
     transform 0.15s ease,
     box-shadow 0.15s ease;
 
+  @include m.glow-press(var(--btn-color));
+
   &:hover,
   &:focus-visible {
     background-color: var(--color-text-primary);
     color: var(--color-bg);
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 var(--color-border-strong);
   }
 }

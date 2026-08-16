@@ -1,16 +1,17 @@
 @use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
 
 .tag {
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  border-radius: 0;
   border: 2px solid var(--tag-color);
   color: var(--tag-color);
   background-color: var(--color-surface);
-  box-shadow: 3px 3px 0 var(--color-border-strong);
   font-family: t.$font-mono;
   font-weight: 700;
   font-size: 1.125rem;
   text-transform: uppercase;
   letter-spacing: t.$tracking-wide;
+
+  @include m.glow-shadow(var(--tag-color), 3px);
 }
