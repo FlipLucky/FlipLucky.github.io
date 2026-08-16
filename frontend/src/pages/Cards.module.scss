@@ -1,0 +1,16 @@
+@use '../styles/tokens' as t;
+@use '../styles/mixins' as m;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @include m.respond-up(t.$breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-up(t.$breakpoint-lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

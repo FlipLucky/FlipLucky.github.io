@@ -1,0 +1,38 @@
+// Color system as CSS custom properties, so the theme can flip at runtime
+// via the `data-theme` attribute on <html> (see src/context/ThemeContext.jsx).
+
+:root {
+  // Dark mode (default)
+  --color-bg: #0b0b0c;
+  --color-surface: #111113;
+  --color-surface-hover: #1a1a1e;
+  --color-text-primary: #ffffff;
+  --color-text-muted: #8e8e93;
+  --color-border: #2a2a2d;
+  --color-input-bg: #0b0b0c;
+  --nav-bg: rgba(11, 11, 12, 0.85);
+
+  // Status colors
+  --color-red: #e64a33;
+  --color-orange: #ff9500;
+  --color-teal: #30d5c8;
+  --color-blue: #2f80ed;
+}
+
+// Light mode overrides (eye-comfortable matte industrial)
+[data-theme='light'] {
+  --color-bg: #e0e2e6;
+  --color-surface: #eaecef;
+  --color-surface-hover: #f2f4f8;
+  --color-text-primary: #111318;
+  --color-text-muted: #5c606a;
+  --color-border: #bec3cc;
+  --color-input-bg: #d4d7df;
+  --nav-bg: rgba(224, 226, 230, 0.88);
+
+  // High-contrast adjusted status colors for light surfaces
+  --color-red: #d12f1b;
+  --color-orange: #d96b00;
+  --color-teal: #007a72;
+  --color-blue: #1653c5;
+}

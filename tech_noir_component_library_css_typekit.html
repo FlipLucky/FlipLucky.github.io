@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Tech Noir - Component Library</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            /* Color System - Dark Mode (Default) */
+            --color-bg: #0B0B0C;
+            --color-surface: #111113;
+            --color-surface-hover: #1A1A1E;
+            --color-text-primary: #FFFFFF;
+            --color-text-muted: #8E8E93;
+            --color-border: #2A2A2D;
+            --color-input-bg: #0B0B0C;
+            --nav-bg: rgba(11, 11, 12, 0.85);
+            
+            /* Status Colors */
+            --color-red: #E64A33;
+            --color-orange: #FF9500;
+            --color-teal: #30D5C8;
+            --color-blue: #2F80ED;
+
+            /* Font Families */
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'Space Mono', monospace;
+
+            /* Typographic Scale (Fluid where applicable) */
+            --text-hero: clamp(4.5rem, 8vw, 6rem);
+            --text-headline: clamp(1.75rem, 4vw, 2.25rem);
+            --text-card-title: 1.375rem;
+            --text-status: 1.25rem;
+            --text-list: 1.125rem;
+            --text-body: 0.8125rem;
+            --text-micro: 0.6875rem;
+            
+            /* Letter Spacing Tokens */
+            --tracking-tight: -0.02em;
+            --tracking-normal: 0;
+            --tracking-wide: 0.08em;
+            --tracking-micro: 0.2em;
+            --tracking-section: 0.15em;
+
+            /* Line Heights */
+            --leading-tight: 1.1;
+            --leading-relaxed: 1.6;
+        }
+
+        /* 
+         * ==========================================
+         *  LIGHT MODE OVERRIDES (Eye-Comfortable Matte Industrial)
+         * ==========================================
+         */
+        [data-theme="light"] {
+            /* Non-glare warm slate/aluminum background and soft elevated cards */
+            --color-bg: #E0E2E6;
+            --color-surface: #EAECEF;
+            --color-surface-hover: #F2F4F8;
+            --color-text-primary: #111318;
+            --color-text-muted: #5C606A;
+            --color-border: #BEC3CC;
+            --color-input-bg: #D4D7DF;
+            --nav-bg: rgba(224, 226, 230, 0.88);
+
+            /* High-contrast adjusted status colors for light surfaces */
+            --color-red: #D12F1B;
+            --color-orange: #D96B00;
+            --color-teal: #007A72;
+            --color-blue: #1653C5;
+        }
+
+        /* Base Body Settings with Theme Transitions */
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        /* Utility Helper Classes mapped to CSS Variables */
+        .bg-main { background-color: var(--color-bg); }
+        .bg-surface { background-color: var(--color-surface); }
+        .bg-input { background-color: var(--color-input-bg); }
+        .border-sys { border-color: var(--color-border); }
+        .text-primary { color: var(--color-text-primary); }
+        .text-muted { color: var(--color-text-muted); }
+
+            --color-bg: #0B0B0C;
+            --color-surface: #111113;
+            --color-text-primary: #FFFFFF;
+            --color-text-muted: #8E8E93;
+            --color-border: #2A2A2D;
+            
+            /* Status Colors */
+            --color-red: #E64A33;
+            --color-orange: #FF9500;
+            --color-teal: #30D5C8;
+            --color-blue: #2F80ED;
+
+            /* Font Families */
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'Space Mono', monospace;
+
+            /* Typographic Scale (Fluid where applicable) */
+            --text-hero: clamp(4.5rem, 8vw, 6rem); /* 72px - 96px */
+            --text-headline: clamp(1.75rem, 4vw, 2.25rem); /* 28px - 36px */
+            --text-card-title: 1.375rem; /* 22px */
+            --text-status: 1.25rem; /* 20px */
+            --text-list: 1.125rem; /* 18px */
+            --text-body: 0.8125rem; /* 13px */
+            --text-micro: 0.6875rem; /* 11px */
+            
+            /* Letter Spacing Tokens */
+            --tracking-tight: -0.02em;
+            --tracking-normal: 0;
+            --tracking-wide: 0.08em;
+            --tracking-micro: 0.2em;
+            --tracking-section: 0.15em;
+
+            /* Line Heights */
+            --leading-tight: 1.1;
+            --leading-relaxed: 1.6;
+        }
+
+        /* Base Body Settings */
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 
+         * ==========================================
+         *  TYPOGRAPHY CLASSES (The Typekit)
+         * ==========================================
+         */
+
+        /* Hero Data: Massive numbers, tight tracking */
+        .tk-hero {
+            font-family: var(--font-sans);
+            font-size: var(--text-hero);
+            font-weight: 700;
+            letter-spacing: var(--tracking-tight);
+            line-height: 1;
+        }
+
+        /* Narrative Headline: The lowercase punchline */
+        .tk-narrative {
+            font-family: var(--font-sans);
+            font-size: var(--text-headline);
+            font-weight: 700;
+            text-transform: lowercase;
+            line-height: var(--leading-tight);
+            letter-spacing: var(--tracking-tight);
+        }
+
+        /* Section Anchor / Navigation Links */
+        .tk-section {
+            font-family: var(--font-mono);
+            font-size: var(--text-micro);
+            font-weight: 700; /* Usually bold in the images for sections */
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-section);
+        }
+
+        /* Card Headers / Status Box Titles */
+        .tk-card-title {
+            font-family: var(--font-sans);
+            font-size: var(--text-card-title);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-normal);
+        }
+
+        /* Standard UI List Items */
+        .tk-list-item {
+            font-family: var(--font-sans);
+            font-size: var(--text-list);
+            font-weight: 500;
+        }
+
+        /* Body Paragraphs: The mono lowercase subversion */
+        .tk-body-mono {
+            font-family: var(--font-mono);
+            font-size: var(--text-body);
+            font-weight: 400;
+            text-transform: lowercase;
+            letter-spacing: var(--tracking-wide);
+            line-height: var(--leading-relaxed);
+            color: var(--color-text-muted);
+        }
+
+        /* Micro Labels: Tiny tech data, massive tracking */
+        .tk-micro {
+            font-family: var(--font-mono);
+            font-size: var(--text-micro);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-micro);
+        }
+
+        /* 
+         * ==========================================
+         *  CUSTOM UTILITIES & OVERRIDES
+         * ==========================================
+         */
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--color-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+        /* Section Anchor Animation */
+        .section-anchor {
+            position: relative;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .section-anchor::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 1px;
+            background-color: currentColor;
+            opacity: 0.5;
+            transition: width 0.3s ease;
+        }
+        .section-anchor:hover::after { width: 100%; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 backdrop-blur-md border-b border-sys px-6 py-4 flex items-center justify-between" style="background-color: var(--nav-bg); transition: background-color 0.25s ease, border-color 0.25s ease;">
+        <div class="flex items-center gap-2" style="color: var(--color-orange)">
+            <span class="font-sans font-bold text-xl tracking-tighter">00</span>
+            <span class="tk-section section-anchor">System Lib</span>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#typography" class="tk-section text-muted hover:text-primary transition-colors">Typography</a>
+            <a href="#components" class="tk-section text-muted hover:text-primary transition-colors">Components</a>
+            <a href="#cards" class="tk-section text-muted hover:text-primary transition-colors">Cards</a>
+            
+            <div class="relative group">
+                <button class="flex items-center gap-2 tk-section transition-colors" style="color: var(--color-teal)">
+                    Modules
+                    <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="absolute right-0 mt-4 w-48 bg-surface border border-sys rounded shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div class="py-2 flex flex-col">
+                        <a href="#" class="px-4 py-2 tk-body-mono text-muted hover:text-primary hover:bg-main transition-colors text-left">alarms</a>
+                        <a href="#" class="px-4 py-2 tk-body-mono text-muted hover:text-primary hover:bg-main transition-colors text-left">telemetry</a>
+                        <a href="#" class="px-4 py-2 tk-body-mono text-muted hover:text-primary hover:bg-main transition-colors text-left">settings</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Light / Dark Theme Toggle Button -->
+            <button id="theme-toggle" class="flex items-center gap-2 px-3 py-1.5 rounded border border-sys tk-micro transition-all hover:border-[var(--color-text-primary)]" style="color: var(--color-text-primary);">
+                <span id="theme-icon">◐</span>
+                <span id="theme-text">LIGHT MODE</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-1 p-6 md:p-12 lg:p-24 max-w-7xl mx-auto w-full space-y-32">
+
+        <section id="typography" class="space-y-12">
+            <div class="flex items-center gap-2 text-muted mb-12">
+                <span class="font-sans font-bold text-lg">01</span>
+                <span class="tk-section section-anchor">The Typography</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div>
+                        <span class="block tk-micro text-muted mb-2">.tk-hero</span>
+                        <div class="tk-hero" style="color: var(--color-red)">20 t</div>
+                    </div>
+                    <div>
+                        <span class="block tk-micro text-muted mb-2">.tk-narrative</span>
+                        <div class="tk-narrative text-primary">
+                            quietly, one of the most <span class="block" style="color: var(--color-orange)">influential documents in design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <span class="block tk-micro text-muted mb-2">.tk-list-item</span>
+                        <div class="tk-list-item text-primary">Your weekly screen-time report</div>
+                    </div>
+                    <div>
+                        <span class="block tk-micro text-muted mb-2">.tk-micro</span>
+                        <div class="tk-micro" style="color: var(--color-teal)">NEEDS NOTHING ➔</div>
+                    </div>
+                    <div>
+                        <span class="block tk-micro text-muted mb-2">.tk-body-mono</span>
+                        <p class="tk-body-mono max-w-sm">
+                            set aside, on record, for a set time. more than a person can keep up with. fires when nothing is wrong.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="components" class="space-y-12">
+            <div class="flex items-center gap-2 text-muted mb-12">
+                <span class="font-sans font-bold text-lg">02</span>
+                <span class="tk-section section-anchor">UI Elements</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="space-y-6">
+                    <span class="block tk-micro text-muted">Status List (Pill Style)</span>
+                    
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between p-4 rounded-xl border border-sys bg-surface hover:border-[var(--color-blue)] transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full shadow-sm" style="background-color: var(--color-blue)"></div>
+                                <span class="tk-list-item text-primary">Your weekly screen-time report</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 rounded-xl border border-sys bg-surface hover:border-[var(--color-orange)] transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-3 h-3 rounded-full shadow-sm" style="background-color: var(--color-orange)"></div>
+                                <span class="tk-list-item text-primary">Someone you follow just posted</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <span class="block tk-micro text-muted">Technical Tags & Data</span>
+                    
+                    <div class="flex flex-wrap gap-6 items-center">
+                        <div class="px-6 py-2 rounded-lg border font-mono font-bold text-lg uppercase tracking-widest bg-surface" style="border-color: var(--color-teal); color: var(--color-teal)">
+                            ISA-18.2
+                        </div>
+                        
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-8 h-8 rounded-full border flex items-center justify-center font-mono text-[10px] font-bold bg-surface" style="border-color: var(--color-blue); color: var(--color-blue)">
+                                47
+                            </div>
+                            <span class="tk-micro text-muted">Standing</span>
+                        </div>
+
+                        <button class="px-6 py-3 rounded border tk-micro transition-all duration-300" style="border-color: var(--color-red); color: var(--color-red);" onmouseover="this.style.backgroundColor='var(--color-red)'; this.style.color='var(--color-bg)';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--color-red)';">
+                            Trigger Alarm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cards" class="space-y-12">
+            <div class="flex items-center gap-2 text-muted mb-12">
+                <span class="font-sans font-bold text-lg">03</span>
+                <span class="tk-section section-anchor">System Cards</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Red Card -->
+                <div class="group flex flex-col items-center justify-center p-8 h-72 rounded-xl border border-sys bg-surface hover:border-[var(--color-red)] transition-all duration-300 text-center">
+                    <div class="mb-8 transform group-hover:scale-110 transition-transform duration-500" style="color: var(--color-red)">
+                        <div class="grid grid-cols-3 gap-1 w-12 h-12">
+                            <div class="border-2 border-current rounded-sm"></div><div class="border-2 border-current rounded-sm bg-current"></div><div class="border-2 border-current rounded-sm"></div>
+                            <div class="border-2 border-current rounded-sm bg-current"></div><div class="border-2 border-current rounded-sm"></div><div class="border-2 border-current rounded-sm bg-current"></div>
+                            <div class="border-2 border-current rounded-sm"></div><div class="border-2 border-current rounded-sm bg-current"></div><div class="border-2 border-current rounded-sm"></div>
+                        </div>
+                    </div>
+                    <h3 class="tk-card-title mb-4" style="color: var(--color-red)">Alarm Flood</h3>
+                    <p class="tk-body-mono w-3/4">more than a person can keep up with</p>
+                </div>
+
+                <!-- Orange Card -->
+                <div class="group flex flex-col items-center justify-center p-8 h-72 rounded-xl border border-sys bg-surface hover:border-[var(--color-orange)] transition-all duration-300 text-center">
+                    <div class="mb-8 transform group-hover:scale-110 transition-transform duration-500 relative" style="color: var(--color-orange)">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg>
+                        <div class="absolute -bottom-2 -right-2 rounded-full w-5 h-5 flex items-center justify-center shadow-lg" style="background-color: var(--color-teal)">
+                            <svg class="w-3 h-3 text-[#0B0B0C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="tk-card-title mb-4" style="color: var(--color-orange)">Nuisance Alarm</h3>
+                    <p class="tk-body-mono w-3/4">fires when nothing is wrong</p>
+                </div>
+
+                <!-- Blue Card -->
+                <div class="group flex flex-col items-center justify-center p-8 h-72 rounded-xl border border-sys bg-surface hover:border-[var(--color-blue)] transition-all duration-300 text-center">
+                    <div class="mb-8 transform group-hover:scale-110 transition-transform duration-500 flex flex-col items-center justify-center h-12 w-12 relative" style="color: var(--color-blue)">
+                        <div class="absolute inset-0 flex flex-col justify-between opacity-30">
+                            <div class="h-[1px] w-full bg-current"></div><div class="h-[1px] w-full bg-current"></div><div class="h-[1px] w-full bg-current"></div><div class="h-[1px] w-full bg-current"></div>
+                        </div>
+                        <div class="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center font-mono text-xs font-bold bg-main z-10">47</div>
+                    </div>
+                    <h3 class="tk-card-title mb-4" style="color: var(--color-blue)">Standing Alarm</h3>
+                    <p class="tk-body-mono w-3/4">on so long it has become wallpaper</p>
+                </div>
+
+                <!-- Teal Card -->
+                <div class="group flex flex-col items-center justify-center p-8 h-72 rounded-xl border border-sys bg-surface hover:border-[var(--color-teal)] transition-all duration-300 text-center">
+                    <div class="mb-8 transform group-hover:scale-110 transition-transform duration-500 relative" style="color: var(--color-teal)">
+                        <svg class="w-12 h-12 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg>
+                        <div class="absolute top-0 -right-2 w-5 h-5 rounded-full border-2 border-current flex items-center justify-center">
+                            <div class="w-1 h-1 bg-current rounded-full"></div>
+                        </div>
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-current"></div>
+                    </div>
+                    <h3 class="tk-card-title mb-4" style="color: var(--color-teal)">Shelving</h3>
+                    <p class="tk-body-mono w-3/4">set aside, on record, for a set time</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="forms" class="space-y-12 pb-24">
+            <div class="flex items-center gap-2 text-muted mb-12">
+                <span class="font-sans font-bold text-lg">04</span>
+                <span class="tk-section section-anchor">Data Entry</span>
+            </div>
+
+            <div class="max-w-2xl bg-surface p-8 md:p-12 rounded-xl border border-sys">
+                <form onsubmit="event.preventDefault();" class="space-y-8">
+                    
+                    <div>
+                        <label class="block tk-micro text-muted mb-3">System Identifier</label>
+                        <input type="text" placeholder="e.g. unit_47_alpha" class="w-full bg-input border-b-2 border-sys text-primary font-mono text-sm p-3 outline-none transition-colors placeholder:text-muted/60" onfocus="this.style.borderColor='var(--color-orange)';" onblur="this.style.borderColor='var(--color-border)';">
+                    </div>
+
+                    <div>
+                        <label class="block tk-micro text-muted mb-3">Priority Level</label>
+                        <div class="relative">
+                            <select class="w-full appearance-none bg-input border border-sys text-primary tk-list-item p-4 rounded outline-none transition-colors cursor-pointer" onfocus="this.style.borderColor='var(--color-blue)';" onblur="this.style.borderColor='var(--color-border)';">
+                                <option value="routine" class="bg-surface text-primary">Routine Monitoring (Needs Nothing)</option>
+                                <option value="warning" class="bg-surface text-primary">Warning State (Needs Review)</option>
+                                <option value="alarm" class="bg-surface text-primary">Critical Alarm (Needs Action)</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-muted">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 flex items-center justify-between border-t border-sys">
+                        <span class="tk-micro text-muted" id="form-status">Awaiting input...</span>
+                        <button class="font-sans font-bold uppercase tracking-wider px-8 py-3 rounded transition-colors" style="background-color: var(--color-teal); color: var(--color-bg);" onmouseover="this.style.backgroundColor='var(--color-text-primary)'; this.style.color='var(--color-bg)';" onmouseout="this.style.backgroundColor='var(--color-teal)'; this.style.color='var(--color-bg)';">
+                            Initialize
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        function setTheme(theme) {
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'DARK MODE';
+                localStorage.setItem('tech-noir-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.textContent = '◐';
+                themeText.textContent = 'LIGHT MODE';
+                localStorage.setItem('tech-noir-theme', 'dark');
+            }
+        }
+
+        // Initialize Theme from localStorage or system preference
+        const savedTheme = localStorage.getItem('tech-noir-theme');
+        if (savedTheme === 'light') {
+            setTheme('light');
+        } else {
+            setTheme('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            setTheme(isLight ? 'dark' : 'light');
+        });
+
+        // Form interactions
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                const statusText = document.getElementById('form-status');
+                if(statusText) {
+                    statusText.textContent = 'Typing detected...';
+                    statusText.style.color = 'var(--color-orange)';
+                }
+            });
+            input.addEventListener('blur', () => {
+                const statusText = document.getElementById('form-status');
+                if(statusText) {
+                    statusText.textContent = 'Awaiting input...';
+                    statusText.style.color = 'var(--color-text-muted)';
+                }
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

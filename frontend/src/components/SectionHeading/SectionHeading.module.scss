@@ -1,0 +1,18 @@
+@use '../../styles/mixins' as m;
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  margin-bottom: 3rem;
+}
+
+.number {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.anchor {
+  @include m.section-anchor;
+}

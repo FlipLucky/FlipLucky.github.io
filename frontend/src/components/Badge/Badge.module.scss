@@ -1,0 +1,27 @@
+@use '../../styles/tokens' as t;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--badge-color);
+  color: var(--badge-color);
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: t.$font-mono;
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+.label {
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,42 @@
+.field {
+  display: block;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  appearance: none;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  padding: 1rem;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: var(--color-blue);
+  }
+}
+
+.chevron {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 1rem;
+  width: 1rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  color: var(--color-text-muted);
+}

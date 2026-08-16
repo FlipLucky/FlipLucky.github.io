@@ -1,0 +1,23 @@
+@use '../../styles/tokens' as t;
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  font-family: t.$font-mono;
+  font-size: t.$text-micro;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: t.$tracking-micro;
+  color: var(--color-text-primary);
+  background: transparent;
+  transition: border-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-text-primary);
+  }
+}

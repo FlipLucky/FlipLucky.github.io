@@ -1,0 +1,53 @@
+@use '../styles/tokens' as t;
+@use '../styles/mixins' as m;
+
+.intro {
+  margin-bottom: 4rem;
+}
+
+.eyebrow {
+  display: block;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.lede {
+  max-width: 32rem;
+}
+
+.linkGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @include m.respond-up(t.$breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.linkCard {
+  display: block;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  transition: border-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-teal);
+  }
+}
+
+.linkTitle {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.linkDescription {
+  color: var(--color-text-muted);
+}

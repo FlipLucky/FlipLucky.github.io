@@ -1,0 +1,68 @@
+@use './tokens' as t;
+
+// Underline that grows to full width on hover. Used on nav links and
+// numbered section headings.
+@mixin section-anchor {
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.5;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+}
+
+@mixin respond-up($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Colored outline button that inverts to a filled swatch on hover/focus.
+// $color is a CSS custom property reference, e.g. var(--color-red).
+@mixin outline-swatch($color) {
+  border-color: #{$color};
+  color: #{$color};
+  background-color: transparent;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: #{$color};
+    color: var(--color-bg);
+  }
+}

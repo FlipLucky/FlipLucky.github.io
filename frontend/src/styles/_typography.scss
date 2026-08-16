@@ -1,0 +1,72 @@
+// ==========================================
+// TYPEKIT — shared typographic classes
+// ==========================================
+// These are deliberately kept as global utility classes (not CSS modules)
+// since they're the typographic vocabulary of the whole site, applied the
+// same way regardless of which component renders them.
+
+@use './tokens' as t;
+
+// Hero data: massive numbers, tight tracking
+.tk-hero {
+  font-family: t.$font-sans;
+  font-size: t.$text-hero;
+  font-weight: 700;
+  letter-spacing: t.$tracking-tight;
+  line-height: 1;
+}
+
+// Narrative headline: the lowercase punchline
+.tk-narrative {
+  font-family: t.$font-sans;
+  font-size: t.$text-headline;
+  font-weight: 700;
+  text-transform: lowercase;
+  line-height: t.$leading-tight;
+  letter-spacing: t.$tracking-tight;
+}
+
+// Section anchor / navigation links
+.tk-section {
+  font-family: t.$font-mono;
+  font-size: t.$text-micro;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: t.$tracking-section;
+}
+
+// Card headers / status box titles
+.tk-card-title {
+  font-family: t.$font-sans;
+  font-size: t.$text-card-title;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: t.$tracking-normal;
+}
+
+// Standard UI list items
+.tk-list-item {
+  font-family: t.$font-sans;
+  font-size: t.$text-list;
+  font-weight: 500;
+}
+
+// Body paragraphs: the mono lowercase subversion
+.tk-body-mono {
+  font-family: t.$font-mono;
+  font-size: t.$text-body;
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: t.$tracking-wide;
+  line-height: t.$leading-relaxed;
+  color: var(--color-text-muted);
+}
+
+// Micro labels: tiny tech data, massive tracking
+.tk-micro {
+  font-family: t.$font-mono;
+  font-size: t.$text-micro;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: t.$tracking-micro;
+}

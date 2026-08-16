@@ -1,0 +1,18 @@
+@use '../../styles/tokens' as t;
+@use '../../styles/mixins' as m;
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: t.$content-max-width;
+  margin-inline: auto;
+  padding: 1.5rem;
+
+  @include m.respond-up(t.$breakpoint-md) {
+    padding: 3rem;
+  }
+
+  @include m.respond-up(t.$breakpoint-lg) {
+    padding: 6rem;
+  }
+}

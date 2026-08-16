@@ -1,0 +1,27 @@
+@use '../styles/tokens' as t;
+@use '../styles/mixins' as m;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+
+  @include m.respond-up(t.$breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.narrativeBreak {
+  display: block;
+  color: var(--color-orange);
+}
+
+.bodyText {
+  max-width: 24rem;
+}
