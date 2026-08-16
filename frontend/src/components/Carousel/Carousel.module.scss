@@ -32,11 +32,23 @@
   border: 2px solid var(--color-border-strong);
   background-color: var(--color-surface);
   color: var(--color-text-primary);
-  transition: border-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    opacity 0.2s ease;
 
   &:hover,
   &:focus-visible {
     border-color: var(--color-teal);
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--color-border-strong);
+    }
   }
 }
 

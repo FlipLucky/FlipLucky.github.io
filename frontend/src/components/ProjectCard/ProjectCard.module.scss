@@ -21,10 +21,21 @@
   }
 }
 
+// Sized as a fraction of the track rather than a fixed width, so N cards
+// always fill the track exactly — no partial sliver of the next one hanging
+// off the edge at arbitrary viewport widths.
 .carousel {
   flex: 0 0 auto;
-  width: 20rem;
+  flex-basis: 100%;
   scroll-snap-align: start;
+
+  @include m.respond-up(t.$breakpoint-sm) {
+    flex-basis: calc((100% - 1.5rem) / 2);
+  }
+
+  @include m.respond-up(t.$breakpoint-lg) {
+    flex-basis: calc((100% - 2 * 1.5rem) / 3);
+  }
 }
 
 .grid {
