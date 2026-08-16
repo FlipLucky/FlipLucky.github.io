@@ -8,7 +8,7 @@
   justify-content: center;
   text-align: center;
   height: 18rem;
-  padding: 1.75rem 2rem 2rem;
+  padding: 3rem 2rem 2rem;
   border: 2px solid var(--color-border-strong);
   background-color: var(--color-surface);
   color: var(--card-color);
@@ -27,8 +27,15 @@
   }
 }
 
+// Pinned to a fixed offset from the card's top edge rather than laid out in
+// the centered flex stack — titles that wrap to a different number of lines
+// per card would otherwise shift the whole group, and a ruled line drifting
+// by a few px between cards reads far worse than an icon doing the same.
 .nameplate {
-  align-self: stretch;
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  right: 2rem;
   display: flex;
   justify-content: space-between;
   font-family: t.$font-mono;
@@ -39,7 +46,6 @@
   color: var(--color-text-muted);
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 0.6rem;
-  margin-bottom: 1.5rem;
 }
 
 .icon {

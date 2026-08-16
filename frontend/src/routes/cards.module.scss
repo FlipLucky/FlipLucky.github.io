@@ -12,5 +12,6 @@
 
   @include m.respond-up(t.$breakpoint-lg) {
     grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 }

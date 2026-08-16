@@ -89,7 +89,7 @@
   border-radius: 0;
   box-shadow:
     #{$offset} #{$offset} 0 #{$accent-var},
-    #{$offset} #{$offset} 28px color-mix(in srgb, #{$accent-var} 45%, transparent);
+    #{$offset} #{$offset} 12px color-mix(in srgb, #{$accent-var} 30%, transparent);
 
   :global([data-theme='light']) & {
     box-shadow: #{$offset} #{$offset} 0 var(--color-border-strong);
